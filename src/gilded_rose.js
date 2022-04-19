@@ -15,6 +15,13 @@ items.push(new Item('Conjured Mana Cake', 3, 6));
 
 function update_quality(items) {
   for (var i = 0; i < items.length; i++) {
+
+    if (items[i].name == 'Conjured Mana Cake') {
+        items[i].quality = items[i].quality - 2; 
+        items[i].sell_in = items[i].sell_in - 1; 
+        continue;
+    }
+
     if (items[i].name != 'Aged Brie' && items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
       if (items[i].quality > 0) {
         if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
@@ -63,3 +70,8 @@ function update_quality(items) {
   return items;
 }
 
+module.exports = {
+  Item,
+  items,
+  update_quality,
+}
