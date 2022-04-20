@@ -34,4 +34,21 @@ describe("Gilded Rose", function() {
     expect(itemsResult).toStrictEqual([new Item('Conjured Mana Cake', 2, 4)]);
   });
 
+  it("Test sulfuras item with no change", function() {
+    // prepare
+    const sulfuraItem = new Item('Sulfuras, Hand of Ragnaros', 0, 80);
+
+    const items = [
+      sulfuraItem
+    ];
+
+    // act
+    const itemsResult = update_quality(items);
+
+    // assert
+    expect(itemsResult).toStrictEqual([
+      sulfuraItem
+    ]);
+  });
+
 });
